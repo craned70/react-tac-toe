@@ -5,7 +5,7 @@ body {
   min-height: 100vh;
 }
 
-ol, ul, {
+ol, ul {
   padding-left: 30px;
 }
 
