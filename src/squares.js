@@ -1,5 +1,4 @@
 import React from "react";
-import './index.css';
 
 export function Square(props) {
     return (
@@ -9,7 +8,7 @@ export function Square(props) {
     );
   }
 
-function calculateWinner(squares) {
+export function calculateWinner(squares) {
   // list of all winning lines - an X or O existing in all 3 of any of these indices indicates a win
   const lines = [
     [0, 1, 2],
