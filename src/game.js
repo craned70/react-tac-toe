@@ -12,7 +12,7 @@ export class Game extends React.Component {
           squares: Array(9).fill(null),
         }],
         xIsNext: true, // state to determine who's turn it is
-        moveNumber: 0,
+        moveNumber: 0, // state to track how many moves have happened
       };
     }
 
@@ -24,8 +24,10 @@ export class Game extends React.Component {
     }
   
     handleClick(i) {
-      const history = this.state.history.slice(0, this.state.moveNumber + 1);
-      const current = history[this.state.moveNumber];
+      const history = this.state.history.slice(0, this.state.moveNumber + 1); // store the previous move in the history variable, I.E. after move 1 it will store move 0 (an empty board)
+      const current = history[this.state.moveNumber]; // current move is the moveNumber index of the history array
+      console.log("history is ", history);
+      console.log("current is ", current);
       const currentSquares = current.squares.slice(); // this makes a copy of the board, cuz mutatin' data be bad
 
       if (calculateWinner(currentSquares) || currentSquares[i]) { // check if there's a winner, or the square clicked is already filled, if either is true, return early
@@ -41,7 +43,6 @@ export class Game extends React.Component {
         xIsNext: !this.state.xIsNext, // flip to the next person's turn
         moveNumber: history.length,
       });
-      console.log(this.state.history);
     }
   
 
